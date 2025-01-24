@@ -1,0 +1,63 @@
+[
+    {
+        "model": "guitars.Guitar",
+        "pk": 1,
+        "fields": {
+            "model": "Fender Stratocaster",
+            "brand": "Fender",
+            "price": 1200,
+            "year": 2020,
+            "color": "Sunburst",
+            "type": "Electric"
+        }
+        
+    },
+    {
+        "model": "guitars.Guitar",
+        "pk": 2,
+        "fields": {
+            "model": "Gibson Les Paul",
+            "brand": "Gibson",
+            "price": 2500,
+            "year": 2019,
+            "color": "Cherry Sunburst",
+            "type": "Electric"
+        }
+    },
+    {
+        "model": "guitars.Guitar",
+        "pk": 3,
+        "fields": {
+            "model": "Fender Stratocaster",
+            "brand": "Fender",
+            "price": 1200,
+            "year": 2020,
+            "color": "Sunburst",
+            "type": "Electric"
+        }
+    },
+    {
+        "model": "guitars.Guitar",
+        "pk": 4,
+        "fields": {
+            "model": "PRS Custom 24",
+            "brand": "PRS",
+            "price": 3500,
+            "year": 2018,
+            "color": "Blue",
+            "type": "Electric"
+        }
+    },
+    {
+        "model": "guitars.Guitar",
+        "pk": 5,
+        "fields": {
+            "model": "Fender Stratocaster",
+            "brand": "Fender",
+            "price": 1200,
+            "year": 2020,
+            "color": "Sunburst",
+            "type": "Electric"
+        }
+    }
+]
