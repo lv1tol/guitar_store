@@ -8,7 +8,9 @@ def index(request):
     return render(request, "index.html", {'guitars': guitars})
 
 def catalog(request):
-    return render(request, "catalog.html", {})
+    guitars = Guitar.objects.all()
+    return render(request, "catalog.html", {'guitars': guitars})
 
 def details(request, id):
-    return render(request, "details.html", {"id": id})
+    guitars = Guitar.objects.all()
+    return render(request, "details.html", {'guitars': guitars, 'id': id})

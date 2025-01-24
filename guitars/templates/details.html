@@ -12,9 +12,13 @@
         <nav>
             <ul>
                 {% for guitar in guitars %}
-                <li>
-                    <h4>{{ guitar.model }}</h4>
-                </li>
+                {% if id == guitar.id %}
+                <h4>{{ guitar.model }}</h4>
+                <p style="margin-top: -10px;">Price: {{ guitar.price }}$</p>
+                <p style="margin-top: -15px;">Brand: {{ guitar.brand }}</p>
+                <p style="margin-top: -15px;">Type: {{ guitar.type }}</p>
+                <p style="margin-top: -15px;">Year: {{ guitar.year }}</p>
+                {% endif %}
                 {% endfor %}
             </ul>
         </nav>
