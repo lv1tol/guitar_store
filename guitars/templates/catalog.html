@@ -8,7 +8,7 @@
 </head>
 <body style="background-color: rgb(211, 208, 204);color: rgb(36, 28, 18);">
     <header>
-        <div style="background-color: rgb(175, 160, 145); width: 100%; color: rgb(255, 253, 240); left: 0; top: 0; width: 100%;position: fixed;padding: 0px 30px 0px 30px;">
+        <div style="background-color: rgb(175, 160, 145); width: 100%; left: 0; top: 0; width: 100%;position: fixed;padding: 0px 30px 0px 30px;">
             <h1 style="display: inline-block;">Guitar Store</h1>
             <button style="display: inline-block;width: 5%; margin-left: 30px;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/'">Home</button>
             <button style="display: inline-block;width: 5%;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/all'">All</button>
@@ -25,6 +25,9 @@
                         <p style="margin-top: -15px;">Brand: {{ guitar.brand }}</p>
                         <p style="margin-top: -15px;">Type: {{ guitar.type }}</p>
                         <p style="margin-top: -15px;">Year: {{ guitar.year }}</p>
+                        <div style="display: inline-block; background-color: rgb(211, 208, 204); height: 60%;width: 87%;text-align: center;border-radius: 3px;">
+                            <img src="" alt="">
+                        </div>
                     </div>
                 {% endfor %}
             {% endblock %}
