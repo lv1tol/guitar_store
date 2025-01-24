@@ -14,3 +14,4 @@ def catalog(request):
 def details(request, id):
     guitars = Guitar.objects.all()
     return render(request, "details.html", {'guitars': guitars, 'id': id})
+

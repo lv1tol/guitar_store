@@ -1,30 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Guitar Store{% endblock %}</title>
-    <link rel="stylesheet" href="">
-</head>
-<body>
-    <header>
-        <h1>Guitar Store</h1>
-        <nav>
-            <ul>
+    {% extends 'catalog.html' %}
+
+            {% block content %}
                 {% for guitar in guitars %}
-                <li>
+                <div style="display: block;background-color: rgb(175, 160, 145);border-radius: 5px;width: 10%;padding: 5px;margin: 3px;text-align: center;" onclick="location.href='/details/{{ guitar.id }}'">
                     <h4>{{ guitar.model }}</h4>
-                </li>
+                </div>
                 {% endfor %}
-            </ul>
-        </nav>
-    </header>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
-    <footer>
-        <p>&copy; 2025 Guitar Store. All rights reserved(fr).</p>
-    </footer>
-</body>
-</html>
+            {% endblock %}
