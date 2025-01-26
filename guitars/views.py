@@ -1,8 +1,12 @@
-from django.shortcuts import render
-from guitars.models import Guitar
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
+from django.forms import model_to_dict
+from django.shortcuts import redirect, render
+from django.contrib.auth.views import LoginView
+from django.contrib import messages
 
+from guitars.forms.create import GuitarCreateForm
+from guitars.models import Guitar
 
 def index(request):
     guitars = Guitar.objects.all()
@@ -16,15 +20,20 @@ def details(request, id):
     guitars = Guitar.objects.all()
     return render(request, "details.html", {'guitars': guitars, 'id': id})
 
-    def create(request):
-        if request.method == "POST":
-            form = GuitarForm(request.POST)
-            if form.is_valid():
-                form.save()
-                return HttpResponseRedirect(reverse('guitars:index'))
+def create(request):
+    form = GuitarCreateForm()
+    if request.method == "POST":
+        form = GuitarCreateForm(request.POST, request.FILES)
+        if form.is_valid():
+            print("in2")
+            form.save()
+            messages.success(request, "User created successfully!")
+            return redirect("/")
         else:
-            form = GuitarForm()
-        return render(request, "create.html", {'form': form})
+            print("err")
+            messages.error(request, "Invalid data!")
+    return render(request, "create.html", {"form": form, "return_url": "/"})
+
 
     def update(request, id):
         guitar = Guitar.objects.get(pk=id)
