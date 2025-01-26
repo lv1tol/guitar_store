@@ -1,7 +1,7 @@
 {% extends "catalog.html" %}
 
 {% block content %}
-<h1>Add hew guitar</h1>
+<h1>Add new guitar</h1>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
@@ -34,7 +34,7 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Color</label>
-        <input type="text" name="color" class="form-control" placeholder="Enter guitar color"></textarea>
+        <input type="text" name="color" class="form-control" placeholder="Enter guitar color">
     </div>
     <div>
         <button type="submit" class="btn btn-primary">Create</button>

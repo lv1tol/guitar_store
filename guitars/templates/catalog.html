@@ -6,35 +6,37 @@
     <title>{% block title %}Guitar Store{% endblock %}</title>
     <link rel="stylesheet" href="" link="static/style.css">
 </head>
-<body style="background-color: rgb(211, 208, 204);color: rgb(36, 28, 18);">
+<body style="background-color: rgb(206, 196, 186);color: rgb(36, 28, 18);">
     <header>
         <div style="background-color: rgb(175, 160, 145); width: 100%; left: 0; top: 0; width: 100%;position: fixed;padding: 0px 30px 0px 30px;">
             <h1 style="display: inline-block;">Guitar Store</h1>
             <button style="display: inline-block;width: 5%; margin-left: 30px;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/'">Home</button>
             <button style="display: inline-block;width: 5%;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/all'">All</button>
-            <button style="display: inline-block;width: 5%;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/details/<int:id>'">Index</button>
             <button style="display: inline-block;width: 5%;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/createGuitar'">Create</button>
         </div>
     </header>
-        <main style="margin-top: 6%; text-align: center;" >
-            {% block content %}
-                {% for guitar in guitars %}
-                    <div style="border: 0px; border-radius: 5px; display: inline-block;width: 15%; text-align: center;margin: 10px;height: 400px;background-color:
-                     rgb(175, 160, 145);" onclick="location.href='/details/{{ guitar.id }}'">
+    <main style="margin-top: 6%; text-align: center;" >
+        {% block content %}
+        {% for guitar in guitars %}
+        <div style="border: 0px; border-radius: 5px; display: inline-block;width: 15%; text-align: center;margin: 10px;height: 400px;background-color:
+                     rgb(175, 160, 145);">
                         <h4>{{ guitar.model }}</h4>
                         <p style="margin-top: -10px;">Price: {{guitar.price }}$</p>
                         <p style="margin-top: -15px;">Brand: {{ guitar.brand }}</p>
                         <p style="margin-top: -15px;">Type: {{ guitar.type }}</p>
                         <p style="margin-top: -15px;">Year: {{ guitar.year }}</p>
-                        <div style="display: inline-block; background-color: rgb(211, 208, 204); height: 60%;width: 87%;text-align: center;border-radius: 3px;">
+                        <div style="display: inline-block; background-color: rgb(206, 196, 186); height: 54%;width: 87%;text-align: center;border-radius: 3px;">
                             <img src="" alt="">
                         </div>
+                        <button style="display: inline-block;margin-top: 10px; width: 27%;height: 20px;border-radius: 5px;background-color: rgb(146, 82, 82); border: 0cap;" onclick="location.href='/delete/{{ guitar.id }}'">Delete</button>
+                        <button style="display: inline-block;margin-top: 10px; width: 27%;height: 20px;border-radius: 5px;background-color: rgb(167, 142, 63); border: 0cap;"  onclick="location.href='/details/{{ guitar.id }}'">Info</button>
+                        <button style="display: inline-block;margin-top: 10px; width: 27%;height: 20px;border-radius: 5px;background-color: rgb(63, 65, 167); border: 0cap;"  onclick="location.href='/update/{{ guitar.id }}'">Edit</button>
                     </div>
                 {% endfor %}
             {% endblock %}
         </main>
     <footer>
-        <div style="position: fixed; background-color: rgb(211, 208, 204);
+        <div style="position: fixed; background-color: rgb(206, 196, 186);
         width: 100%; bottom: 0; left: 0;  text-align: center;padding: 30px;">&copy; <strong>2025 Guitar Store. All rights reserved.</strong></div>
     </footer>
 </body>

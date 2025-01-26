@@ -1,0 +1,36 @@
+{% extends "catalog.html" %}
+
+{% block content %}
+<h1>Edit guitar</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Brand</label>
+        <input type="text" name="brand" class="form-control" placeholder="Enter guitar brand"  value="{{ form.brand.value }}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Model</label>
+        <input type="text" name="model" class="form-control" placeholder="Enter guitar model" value="{{ form.model.value }}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Price</label>
+        <input type="number" name="price" class="form-control" placeholder="Enter guitar price" value="{{ form.price.value }}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Type</label>
+        <input type="text" name="type" class="form-control" placeholder="Enter guitar type" value="{{ form.type.value }}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Year</label>
+        <input type="number" name="year" class="form-control" placeholder="Enter guitar year" value="{{ form.year.value }}">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Color</label>
+        <input type="text" name="color" class="form-control" placeholder="Enter guitar color" value="{{ form.color.value }}"> 
+    </div>
+    <div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>
+{% endblock %}

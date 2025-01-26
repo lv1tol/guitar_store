@@ -6,6 +6,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib import messages
 
 from guitars.forms.create import GuitarCreateForm
+from guitars.forms.update import GuitarUpdateForm
 from guitars.models import Guitar
 
 def index(request):
@@ -28,27 +29,36 @@ def create(request):
             print("in2")
             form.save()
             messages.success(request, "User created successfully!")
-            return redirect("/")
+            return render(request, "update.html", {"form": form, "id": id})
         else:
             print("err")
             messages.error(request, "Invalid data!")
-    return render(request, "create.html", {"form": form, "return_url": "/"})
+    return redirect("/")
 
 
-    def update(request, id):
-        guitar = Guitar.objects.get(pk=id)
-        if request.method == "POST":
-            form = GuitarForm(request.POST, instance=guitar)
-            if form.is_valid():
-                form.save()
-                return HttpResponseRedirect(reverse('guitars:details', args=[id]))
-        else:
-            form = GuitarForm(instance=guitar)
-        return render(request, "update.html", {'form': form, 'id': id})
+def update(request, id):
+    guitar = Guitar.objects.get(id=id)
+
+    if guitar is None:
+        return HttpResponse("User not found")
+
+    form = GuitarUpdateForm(instance=guitar)
+
+    if request.method == "POST":
+        form = GuitarCreateForm(request.POST, request.FILES, instance=guitar)
+
+        if request.FILES and guitar.avatar:
+            guitar.avatar.delete()
+
+        if form.is_valid():
+            form.save()
+            return redirect("/")
+
+    return render(request, "update.html", {"form": form, "return_url": "/"})
 
 def delete(request, id):
     guitar = Guitar.objects.get(pk=id)
-    if request.method == "POST":
-        guitar.delete()
-        return HttpResponseRedirect(reverse('guitars:index'))
-    return render(request, "delete.html", {'guitar': guitar})
+    if guitar is None:
+        return HttpResponse("Guitar not found")
+    guitar.delete()
+    return redirect("/")
