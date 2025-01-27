@@ -6,7 +6,7 @@ class Guitar(models.Model):
     type = models.CharField(max_length=50)
     year = models.IntegerField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
-    avatar = models.ImageField(blank=True, null=True, upload_to="avatars/")
+    avatar = models.ImageField(upload_to='guitars/avatars/')
 
     def __str__(self):
         return f"{self.brand} {self.model} ({self.year})"

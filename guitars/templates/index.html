@@ -2,7 +2,7 @@
 
             {% block content %}
                 {% for guitar in guitars %}
-                <div style="display: block;background-color: rgb(175, 160, 145);border-radius: 5px;width: 10%;padding: 5px;margin: 3px;text-align: center;" onclick="location.href='/details/{{ guitar.id }}'">
+                <div style="display: inline-block;background-color: rgb(175, 160, 145);border-radius: 5px;width: 10%;padding: 5px;margin: 3px;text-align: center;" onclick="location.href='/details/{{ guitar.id }}'">
                     <h4>{{ guitar.model }}</h4>
                 </div>
                 {% endfor %}
