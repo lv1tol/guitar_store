@@ -10,9 +10,9 @@ class Guitar(models.Model):
     avatar = models.ImageField(upload_to='guitars/avatars/', blank=True, null=True, default=None)
     description = models.TextField(max_length=500, blank=True, null=True, default=None)
     def clean(self):
-        if self.year < 1900 or self.year > 2100:
+        if self.year is None or self.year < 1900 or self.year > 2100:
             raise ValidationError('Year must be between 1900 and 2100.')
-        if self.price < 0:
+        if self.price is None or self.price < 0:
             raise ValidationError('Price must be a positive number.')
     def __str__(self):
         return f"{self.brand} {self.model} ({self.year})"

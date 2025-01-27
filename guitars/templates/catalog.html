@@ -1,5 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+    <style>
+        .btn {
+            color: rgb(36, 28, 18);
+            padding: 10px;
+            border-radius: 5px;
+            border: 0px;
+            background-color: rgb(175, 160, 145);
+        }
+        .btn:hover {
+            color: rgb(206, 196, 186);
+            background-color: rgb(156, 139, 123);
+        }
+        .btn:active {
+            color: rgb(102, 187, 99);
+            background-color: rgb(122, 109, 96);
+        }
+        .btn2 {
+            color: rgb(36, 28, 18);
+            padding: 10px;
+            border-radius: 5px;
+            border: 0px;
+            background-color: rgb(175, 160, 145);
+        }
+        .btn2:hover {
+            background-color: rgb(156, 139, 123);
+        }
+        .btn2:active {
+            color: rgb(102, 187, 99);
+            background-color: rgb(122, 109, 96);
+        }
+        .card {
+            border: 0px;
+            border-radius: 5px;
+            display: inline-block;
+            width: 15%;
+            text-align: center;
+            margin: 10px;
+            height: 400px;
+            background-color: rgb(175, 160, 145);
+        }
+        .card:hover {
+            border-radius: 7px;
+            display: inline-block;
+            text-align: center;
+            margin: 5px;
+            height: 410px;
+            background-color: rgb(165, 148, 132);
+        }
+        .card:active {
+        }
+    </style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,16 +61,15 @@
     <header>
         <div style="background-color: rgb(175, 160, 145); width: 100%; left: 0; top: 0; width: 100%;position: fixed;padding: 0px 30px 0px 30px;">
             <h1 style="display: inline-block;" onclick="location.href='/'">Guitar Store</h1>
-            <button style="display: inline-block;width: 5%; margin-left: 30px;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/'">Home</button>
-            <button style="display: inline-block;width: 5%;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/all'">All</button>
-            <button style="display: inline-block;width: 5%;height: 100px;border: 0cap;background-color: rgb(175, 160, 145);" onclick="location.href='/createGuitar'">Create</button>
+            <button class="btn" style="display: inline-block;width: 5%; margin-left: 30px;height: 100px;border: 0cap; " onclick="location.href='/'">Home</button>
+            <button class="btn" style="display: inline-block;width: 5%;height: 100px;border: 0cap;" onclick="location.href='/all'">All</button>
+            <button class="btn" style="display: inline-block;width: 5%;height: 100px;border: 0cap;" onclick="location.href='/createGuitar'">Create</button>
         </div>
     </header>
     <main style="margin-top: 6%; text-align: center;" >
         {% block content %}
         {% for guitar in guitars %}
-        <div style="border: 0px; border-radius: 5px; display: inline-block;width: 15%; text-align: center;margin: 10px;height: 400px;background-color:
-                     rgb(175, 160, 145);">
+            <div class="card">
                         <h4>{{guitar.brand}} {{ guitar.model }}</h4>
                         <p style="margin-top: -10px;">Price: {{guitar.price }}$</p>
                         <p style="margin-top: -15px;">Brand: {{ guitar.brand }}</p>
