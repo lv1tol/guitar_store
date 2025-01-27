@@ -15,7 +15,7 @@
     }
     label {
         text-align: left;
-        color: white;
+        color: rgb(36, 28, 18);
         padding-right: 10px;
     }
     input {
@@ -26,41 +26,55 @@
         border-bottom:2px solid rgb(36, 28, 18);
         border-radius: 5px;
         background-color: rgb(206, 196, 186);
+        color: rgb(36, 28, 18);
+    }
+    textarea {
+        text-align: left;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        border-bottom:2px solid rgb(36, 28, 18);
+        border-radius: 5px;
+        background-color: rgb(206, 196, 186);
         color: black;
     }
+
 </style>
 
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mb-3">
-        <label class="form-label">Brand</label>
+        <label>Brand</label>
         <input type="text" name="brand" class="form-control" placeholder="Enter guitar brand">
     </div>
     <div class="mb-3">
-        <label class="form-label">Model</label>
+        <label>Model</label>
         <input type="text" name="model" class="form-control" placeholder="Enter guitar model">
     </div>
     <div class="mb-3">
-        <label class="form-label">Price</label>
+        <label>Price</label>
         <input type="number" name="price" class="form-control" placeholder="Enter guitar price">
     </div>
     <div class="mb-3">
-        <label class="form-label">Type</label>
+        <label>Type</label>
         <input type="text" name="type" class="form-control" placeholder="Enter guitar type">
     </div>
     <div class="mb-3">
-        <label class="form-label">Year</label>
+        <label>Year</label>
         <input type="number" name="year" class="form-control" placeholder="Enter guitar year">
     </div>
     <div class="mb-3">
-        <label class="form-label">Color</label>
+        <label>Color</label>
         <input type="text" name="color" class="form-control" placeholder="Enter guitar color">
     </div>
     <div class="mb-3">
         <input style="width: 95%;" type="file" name="image" class="form-control" placeholder="Enter guitar image">
     </div>
+    <div class="mb-3">
+        <textarea type="text" name="description" class="form-control" placeholder="Enter description" style="width: 95%; max-width: 95%; min-width: 95%;"></textarea>
+    </div>
     <div style="width: 5%; margin-left: 47%; background-color: rgb(175, 160, 145); border-radius: 10px; padding: 10px;">
-        <button type="submit" class="btn btn-primary" style="background-color: rgb(206, 196, 186);border-radius: 5px;border: 0px;">Create</button>
+        <button type="submit" class="btn btn-primary" style="background-color: rgb(206, 196, 186);border-radius: 5px;border: 0px; width: 90%;">Create</button>
     </div>
 </form>
 {% endblock %}

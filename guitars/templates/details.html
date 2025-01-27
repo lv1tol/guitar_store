@@ -19,6 +19,20 @@
                     border-radius: 5px;
                     color: black;
                 }
+                
+                img {
+                    color: white;
+                    padding-right: 10px;
+                    background-color: rgb(206, 196, 186);
+                    width: 75%;
+                    margin-left: 3%;
+                    padding: 7px;
+                    border-radius: 5px;
+                    color: black;
+                    height: 200px;
+                }
+
+
             </style>
     {% extends 'catalog.html' %}
         {% block content %}
@@ -31,6 +45,8 @@
                     <p>Color: {{ guitar.color }}</p>
                     <p>Year: {{ guitar.year }}</p>
                     <p>Price: {{ guitar.price }}$</p>
+                    <img  src="{{ guitar.avatar }}" alt="{{ guitar.model }}" style="max-width: 100%; max-height: 100%;">
+                    <p>Description: {{ guitar.description }}</p>
                 </div>
                 {% endif %}
                 {% endfor %}
