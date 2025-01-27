@@ -1,15 +1,37 @@
+            <style>
+                .m3 {
+                    margin-bottom: 10px;
+                    background-color: rgb(175, 160, 145);
+                    width: 13%;
+                    padding: 10px;
+                    border-radius: 10px;
+                    display:block;
+                    margin-left: 43%;
+                }
+
+                p {
+                    color: white;
+                    padding-right: 10px;
+                    background-color: rgb(206, 196, 186);
+                    width: 75%;
+                    margin-left: 11%;
+                    padding: 7px;
+                    border-radius: 5px;
+                    color: black;
+                }
+            </style>
     {% extends 'catalog.html' %}
-            
         {% block content %}
-            <ul>
                 {% for guitar in guitars %}
                 {% if id == guitar.id %}
-                <h4>{{ guitar.model }}</h4>
-                <p style="margin-top: -10px;">Price: {{ guitar.price }}$</p>
-                <p style="margin-top: -15px;">Brand: {{ guitar.brand }}</p>
-                <p style="margin-top: -15px;">Type: {{ guitar.type }}</p>
-                <p style="margin-top: -15px;">Year: {{ guitar.year }}</p>
+                <div class="m3">    
+                    <p>Brand: {{ guitar.brand }}</p>
+                    <p>Model: {{ guitar.model }}</p>
+                    <p>Type: {{ guitar.type }}</p>
+                    <p>Color: {{ guitar.color }}</p>
+                    <p>Year: {{ guitar.year }}</p>
+                    <p>Price: {{ guitar.price }}$</p>
+                </div>
                 {% endif %}
                 {% endfor %}
-            </ul>
         {% endblock %}

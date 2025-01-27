@@ -26,14 +26,12 @@ def create(request):
     if request.method == "POST":
         form = GuitarCreateForm(request.POST, request.FILES)
         if form.is_valid():
-            print("in2")
             form.save()
-            messages.success(request, "User created successfully!")
-            return render(request, "update.html", {"form": form, "id": id})
+            messages.success(request, "Guitar added successfully!")
+            return redirect("/")
         else:
-            print("err")
             messages.error(request, "Invalid data!")
-    return redirect("/")
+    return render(request, "create.html", {"form": form, "id": id})
 
 
 def update(request, id):
